@@ -1,0 +1,76 @@
+{
+  "displayName": "DHL Utils",
+  "name": "util-functions-dhl",
+  "platform": "web",
+  "version": "1.0.0",
+  "description": "DHL Utils provide a variaty of useful events, conditions and actions for our click and event driven tracking approach.",
+  "iconPath": "./src/resources/icon/dhl.svg",
+  "author": {
+    "name": "DHL CSI"
+  },
+  "viewBasePath": "src/view/",
+  "actions": [
+    {
+      "displayName": "Direct Call",
+      "name": "direct-call",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "dc": {
+            "type": "string",
+            "pattern": "[\\w\\d]+"
+          }
+        }
+      },
+      "libPath": "src/lib/actions/directCall.js",
+      "viewPath": "actions/directCall.html"
+    },
+    {
+      "displayName": "Dynamic Event Handler",
+      "name": "datalayer-event-handler",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {}
+      },
+      "libPath": "src/lib/actions/datalayerEventHandler.js"
+    }
+  ],
+  "events": [
+    {
+      "displayName": "Dynamic Event Listener",
+      "name": "datalayer-event",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "libPath": "src/lib/events/datalayerEvent.js",
+      "viewPath": "events/datalayerEvent.html"
+    }
+  ],
+  "conditions": [
+    {
+      "displayName": "Dynamic Event Name",
+      "name": "dynamic-event-name",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "condition": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "libPath": "src/lib/conditions/dynamicEventName.js",
+      "viewPath": "conditions/dynamicEventName.html"
+    }
+  ]
+}
