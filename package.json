@@ -4,15 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "setProxy": "npm config set proxy \"http://jschlons:SvenIstDumm1234567@globalproxy.goc.dhl.com:8080\" & npm config set https-proxy \"http://jschlons:SvenIstDumm1234567@globalproxy.goc.dhl.com:8080\"",
+    "removeProxy": "npm config delete proxy & npm config delete https-proxy",
     "sandbox": "./node_modules/.bin/reactor-sandbox",
     "template": "npx @adobe/reactor-scaffold",
     "make": "npx @adobe/reactor-packager",
-    "upload": "npx @adobe/reactor-uploader package-util-functions-1.0.0.zip --environment=production --private-key=C:\\Users\\jschlons\\keys\\adobe_io_private.key --org-id=9D88879D5579828F7F000101@AdobeOrg --tech-account-id=6776769B5C498CFB0A495CD0@techacct.adobe.com --api-key=255bfc77efd844dcbfffd778d6f2bf81 --client-secret=aeedb0be-e93d-4b8d-a2bb-e0dd589aa74b"
+    "upload": "npx @adobe/reactor-uploader --environment=production --private-key=C:\\Users\\jschlons\\keys\\adobe_io_private.key --org-id=9D88879D5579828F7F000101@AdobeOrg --tech-account-id=6776769B5C498CFB0A495CD0@techacct.adobe.com --api-key=255bfc77efd844dcbfffd778d6f2bf81 --client-secret=aeedb0be-e93d-4b8d-a2bb-e0dd589aa74b"
   },
   "author": "Jakob Schlonsok (DHL CSI)",
   "license": "ISC",
   "devDependencies": {
-    "@adobe/reactor-sandbox": "^10.1.2",
+    "@adobe/reactor-packager": "^3.0.4",
+    "@adobe/reactor-sandbox": "^10.1.3",
+    "@adobe/reactor-scaffold": "^2.1.2",
     "@adobe/reactor-uploader": "^1.2.2",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3"

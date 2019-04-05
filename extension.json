@@ -1,12 +1,13 @@
 {
-  "displayName": "DHL Utils",
+  "displayName": "DHL Tracking Tools",
   "name": "util-functions-dhl",
   "platform": "web",
-  "version": "1.0.0",
-  "description": "DHL Utils provide a variaty of useful events, conditions and actions for our click and event driven tracking approach.",
+  "version": "1.0.12",
+  "description": "DHL Utils provide a variety of useful events, conditions and actions for our click and event driven tracking approach.",
   "iconPath": "./src/resources/icon/dhl.svg",
   "author": {
-    "name": "DHL CSI"
+    "name": "DHL CSI",
+    "url": "https://github.com/fooku18/launch-dhl-utils-extension"
   },
   "viewBasePath": "src/view/",
   "actions": [
@@ -27,14 +28,36 @@
       "viewPath": "actions/directCall.html"
     },
     {
-      "displayName": "Dynamic Event Handler",
-      "name": "datalayer-event-handler",
+      "displayName": "Decibel Force Collection",
+      "name": "decibel-force-collection",
       "schema": {
         "$schema": "http://json-schema.org/draft-04/schema#",
         "type": "object",
         "properties": {}
       },
-      "libPath": "src/lib/actions/datalayerEventHandler.js"
+      "libPath": "src/lib/actions/decibelForceCollection.js"
+    },
+    {
+      "displayName": "Trigger Custom Event",
+      "name": "trigger-custom-event",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {}
+      },
+      "libPath": "src/lib/actions/triggerCustomEvent.js",
+      "viewPath": "actions/triggerCustomEvent.html"
+    },
+    {
+      "displayName": "Set DataElement",
+      "name": "set-dataelement",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {}
+      },
+      "libPath": "src/lib/actions/setDataelement.js",
+      "viewPath": "actions/setDataelement.html"
     }
   ],
   "events": [
@@ -71,6 +94,116 @@
       },
       "libPath": "src/lib/conditions/dynamicEventName.js",
       "viewPath": "conditions/dynamicEventName.html"
+    }
+  ],
+  "sharedModules": [
+    {
+      "name": "tracker-setter",
+      "libPath": "src/lib/sharedModules/trackerSetter.js"
+    }
+  ],
+  "dataElements": [
+    {
+      "displayName": "Previous Value",
+      "name": "previous-value",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "details": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "libPath": "src/lib/dataElements/previousValue.js",
+      "viewPath": "dataElements/previousValue.html"
+    },
+    {
+      "displayName": "Previous Page Seconds Spent",
+      "name": "previous-page-seconds-spent",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {}
+      },
+      "libPath": "src/lib/dataElements/previousPageSecondsSpent.js"
+    },
+    {
+      "displayName": "Client Time",
+      "name": "client-time",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {}
+      },
+      "libPath": "src/lib/dataElements/clientTime.js"
+    },
+    {
+      "displayName": "Client Day",
+      "name": "client-day",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {}
+      },
+      "libPath": "src/lib/dataElements/clientDay.js"
+    },
+    {
+      "displayName": "Client Day Type",
+      "name": "client-day-type",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {}
+      },
+      "libPath": "src/lib/dataElements/clientDayType.js"
+    },
+    {
+      "displayName": "Page Load Time",
+      "name": "page-load-time",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {}
+      },
+      "libPath": "src/lib/dataElements/pageLoadTime.js"
+    },
+    {
+      "displayName": "Seconds Since Pageload",
+      "name": "seconds-since-pageload",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {}
+      },
+      "libPath": "src/lib/dataElements/secondsSincePageload.js"
+    },
+    {
+      "displayName": "Previous Page Percentage Viewed",
+      "name": "previous-page-percentage-viewed",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {}
+      },
+      "libPath": "src/lib/dataElements/previousPagePercentageViewed.js",
+      "viewPath": "dataElements/previousPagePercentageViewed.html"
+    },
+    {
+      "displayName": "URL Pieces",
+      "name": "url-pieces",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {}
+      },
+      "libPath": "src/lib/dataElements/urlPieces.js",
+      "viewPath": "dataElements/urlPieces.html"
     }
   ]
 }

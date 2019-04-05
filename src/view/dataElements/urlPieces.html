@@ -3,13 +3,26 @@
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="//assets.adobedtm.com/activation/reactor/coralui/3.16.0/css/coral.css">
-    <title>Event</title>
+    <title>Data Element</title>
   </head>
   <body class="coral--light">
     <form class="coral-Form coral-Form--vertical">
       <section class="coral-Form-fieldset">
-        <label class="coral-Form-fieldlabel" for="js.name">Event JavaScript Variable Path</label>
-        <input type="text" name="js.name" class="coral-Textfield" id="path" placeholder="e.g dataLayer.event" />
+        <div>
+          <h3>URL Pieces</h3>
+          <div>
+            <label for="base">
+              <input id="base" type="radio" name="url" value="base">
+              <span>Base</span>
+            </label>
+          </div>
+          <div>
+            <label for="last">
+              <input id="last" type="radio" name="url" value="last">
+              <span>Last Piece</span>
+            </label>
+          </div>
+        </div>
       </section>
     </form>
     <script src="https://assets.adobedtm.com/activation/reactor/extensionbridge/extensionbridge.min.js"></script>
@@ -17,16 +30,16 @@
       window.extensionBridge.register({
         init: function(info) {
           if (info.settings) {
-            document.querySelector("#path").value = info.settings.path || "";
+            document.querySelector("#"+info.settings.details).checked = !0;
           }
         },
         getSettings: function() {
           return {
-            path: document.querySelector("#path").value || ""
+            details: document.querySelector("[name='url']:checked").getAttribute("id")
           }
         },
         validate: function() {
-          return !~document.querySelector("#path").value.search(" ");
+          return !!document.querySelector("[name='url']:checked");
         }
       });
     </script>

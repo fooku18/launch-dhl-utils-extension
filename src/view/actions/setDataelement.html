@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="//assets.adobedtm.com/activation/reactor/coralui/3.16.0/css/coral.css">
+    <title>Event</title>
+  </head>
+  <body class="coral--light">
+    <form class="coral-Form coral-Form--vertical">
+      <section class="coral-Form-fieldset">
+        <div>
+            <label class="coral-Form-fieldlabel" for="js.name">Data Element Name</label>
+            <input type="text" name="js.name" class="coral-Textfield" id="name" placeholder="" />
+        </div>
+        <div>
+          <label class="coral-Form-fieldlabel" for="js.details">Value</label>
+          <input type="text" name="js.details" class="coral-Textfield" id="details" placeholder="" />
+        </div>
+      </section>
+    </form>
+    <script src="https://assets.adobedtm.com/activation/reactor/extensionbridge/extensionbridge.min.js"></script>
+    <script>
+      window.extensionBridge.register({
+        init: function(info) {
+          if (info.settings) {
+            document.querySelector("#name").value = info.settings.name || "";
+            document.querySelector("#details").value = info.settings.details || "";
+          }
+        },
+        getSettings: function() {
+          return {
+            name: document.querySelector("#name").value || "",
+            details: document.querySelector("#details").value || ""
+          }
+        },
+        validate: function() {
+          return !!document.querySelector("#name").value&&!!document.querySelector("#details").value;
+        }
+      });
+    </script>
+  </body>
+</html>

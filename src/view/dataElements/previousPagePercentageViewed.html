@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="//assets.adobedtm.com/activation/reactor/coralui/3.16.0/css/coral.css">
+    <title>Data Element</title>
+  </head>
+  <body class="coral--light">
+    <form class="coral-Form coral-Form--vertical">
+      <section class="coral-Form-fieldset">
+        <div>
+          <h3>Scroll Depth</h3>
+          <div>
+            <label for="initial">
+              <input id="initial" type="radio" name="details" value="initial">
+              <span>Initial</span>
+            </label>
+          </div>
+          <div>
+            <label for="maximum">
+              <input id="maximum" type="radio" name="details" value="maximum">
+              <span>Maximum</span>
+            </label>
+          </div>
+        </div>
+      </section>
+    </form>
+    <script src="https://assets.adobedtm.com/activation/reactor/extensionbridge/extensionbridge.min.js"></script>
+    <script>
+      window.extensionBridge.register({
+        init: function(info) {
+          if (info.settings) {
+            document.querySelector("#"+info.settings.details).checked = !0;
+          }
+        },
+        getSettings: function() {
+          return {
+            details: document.querySelector("[name='details']:checked").getAttribute("id")
+          }
+        },
+        validate: function() {
+          return !!document.querySelector("[name='details']:checked");
+        }
+      });
+    </script>
+  </body>
+</html>
