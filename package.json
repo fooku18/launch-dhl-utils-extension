@@ -4,8 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "setProxy": "npm config set proxy \"http://jschlons:SvenIstDumm1234567@globalproxy.goc.dhl.com:8080\" & npm config set https-proxy \"http://jschlons:SvenIstDumm1234567@globalproxy.goc.dhl.com:8080\"",
-    "removeProxy": "npm config delete proxy & npm config delete https-proxy",
     "sandbox": "./node_modules/.bin/reactor-sandbox",
     "template": "npx @adobe/reactor-scaffold",
     "make": "npx @adobe/reactor-packager",
