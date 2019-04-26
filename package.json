@@ -19,6 +19,10 @@
     "@adobe/reactor-scaffold": "^2.1.2",
     "@adobe/reactor-uploader": "^1.2.2",
     "webpack": "^4.29.6",
-    "webpack-cli": "^3.2.3"
+    "webpack-cli": "^3.2.3",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "dependencies": {
+    "whatwg-fetch": "^3.0.0"
   }
 }

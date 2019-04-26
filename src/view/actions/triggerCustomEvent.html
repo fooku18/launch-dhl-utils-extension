@@ -4,6 +4,42 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="//assets.adobedtm.com/activation/reactor/coralui/3.16.0/css/coral.css">
     <title>Event</title>
+    <style>
+      .keyValDiv{
+        display: inline-block;
+      }
+      .removeMe:hover{
+        cursor: pointer;
+      }
+    </style>
+    <script>
+        var build = (k = "", v = "") => {
+        const div = document.createElement("div");
+        div.classList.add("keyValPair");
+        const template = `
+            <div class="keyValDiv">
+                <label class="coral-Form-fieldlabel" for="key">Key</label>
+                <input type="text" name="key" class="coral-Textfield" value="${k||''}" />
+            </div>
+            <div class="keyValDiv">
+                <label class="coral-Form-fieldlabel" for="value">Value</label>
+                <input type="text" name="value" class="coral-Textfield" value="${v||''}" />
+            </div>
+            <div class="keyValDiv removeMe">
+                <a class="remove">X</a>
+                <a class="add">+</a>
+            </div>
+        `;
+        div.innerHTML = template;
+        div.querySelector(".removeMe a.remove").addEventListener("click", function(e){
+            div.parentNode.removeChild(div);
+        }, !0);
+        div.querySelector(".removeMe a.add").addEventListener("click", function(e){
+          div.parentNode.appendChild(build());
+        }, !0);
+        return div;
+    }
+    </script>
   </head>
   <body class="coral--light">
     <form class="coral-Form coral-Form--vertical">
@@ -11,10 +47,6 @@
         <div>
             <label class="coral-Form-fieldlabel" for="js.name">Custom Event Name</label>
             <input type="text" name="js.name" class="coral-Textfield" id="name" placeholder="" />
-        </div>
-        <div>
-          <label class="coral-Form-fieldlabel" for="js.details">Details</label>
-          <input type="text" name="js.details" class="coral-Textfield" id="details" placeholder="" />
         </div>
       </section>
     </form>
@@ -24,14 +56,30 @@
         init: function(info) {
           if (info.settings) {
             document.querySelector("#name").value = info.settings.name || "";
-            document.querySelector("#details").value = info.settings.details || "";
+            if(info.settings.detail){
+              Object.keys(info.settings.detail).forEach(key => {
+                document.querySelector("section").appendChild(build(key, info.settings.detail[key]));
+              })
+            }else{
+              document.querySelector("section").appendChild(build());
+            }
+          }else{
+            document.querySelector("section").appendChild(build());
           }
         },
         getSettings: function() {
-          return {
+          var ret = {
             name: document.querySelector("#name").value || "",
-            details: document.querySelector("#details").value || ""
+            detail: {}
           }
+          Array.prototype.slice.call(document.querySelectorAll(".keyValPair")).forEach(element => {
+            const key = element.querySelector("input[name='key']").value;
+            const value = element.querySelector("input[name='value']").value;
+            if(key&&value){
+              ret.detail[key] = value
+            }
+          });
+          return ret;
         },
         validate: function() {
           return !!document.querySelector("#name").value;

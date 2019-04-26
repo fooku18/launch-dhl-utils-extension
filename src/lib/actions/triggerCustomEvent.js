@@ -3,5 +3,7 @@
 var document = require("@adobe/reactor-document");
 
 module.exports = function(settings, event) {
-  document.dispatchEvent(new CustomEvent(settings.name), {detail: event});
+  setTimeout(function(){
+    document.dispatchEvent(new CustomEvent(settings.name, {detail: settings.detail}));
+  }, 0);
 };

@@ -2,7 +2,7 @@
   "displayName": "DHL Tracking Tools",
   "name": "util-functions-dhl",
   "platform": "web",
-  "version": "1.0.12",
+  "version": "1.0.27",
   "description": "DHL Utils provide a variety of useful events, conditions and actions for our click and event driven tracking approach.",
   "iconPath": "./src/resources/icon/dhl.svg",
   "author": {
@@ -76,6 +76,16 @@
       },
       "libPath": "src/lib/events/datalayerEvent.js",
       "viewPath": "events/datalayerEvent.html"
+    },
+    {
+      "displayName": "Usabilla Campaign End",
+      "name": "usabilla-campaign-end",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {}
+      },
+      "libPath": "src/lib/events/usabillaCampaignEnd.js"
     }
   ],
   "conditions": [
@@ -94,6 +104,16 @@
       },
       "libPath": "src/lib/conditions/dynamicEventName.js",
       "viewPath": "conditions/dynamicEventName.html"
+    },
+    {
+      "displayName": "Data-Tracking Value Event Appender",
+      "name": "data-tracking-value-event-appender",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {}
+      },
+      "libPath": "src/lib/conditions/dataTrackingValueEventAppender.js"
     }
   ],
   "sharedModules": [
@@ -204,6 +224,16 @@
       },
       "libPath": "src/lib/dataElements/urlPieces.js",
       "viewPath": "dataElements/urlPieces.html"
+    },
+    {
+      "displayName": "Traffic Type",
+      "name": "traffic-type",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {}
+      },
+      "libPath": "src/lib/dataElements/trafficType.js"
     }
   ]
 }
