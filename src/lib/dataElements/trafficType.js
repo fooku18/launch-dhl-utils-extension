@@ -16,6 +16,9 @@ if(check.sessionStorageCheck&&!window.sessionStorage.getItem("s_trf"))
   }
 
 module.exports = function(settings) {
-  if(!check.sessionStorageCheck)return;
-  return window.sessionStorage.getItem("s_trf");
+  try{
+    return window.sessionStorage.getItem("s_trf");
+  }catch(e){
+    return
+  }
 };
