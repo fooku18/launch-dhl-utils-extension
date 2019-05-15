@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="//assets.adobedtm.com/activation/reactor/coralui/3.16.0/css/coral.css">
+    <title>Clicks for data-tracking elements</title>
+  </head>
+  <body class="coral--light">
+    <form class="coral-Form coral-Form--vertical">
+      <section class="coral-Form-fieldset">
+        <label class="coral-Form-fieldlabel" for="selector">Non redirect selector</label>
+        <input type="text" name="selector" class="coral-Textfield" id="selector" placeholder="e.g css selector" />
+      </section>
+    </form>
+    <script src="https://assets.adobedtm.com/activation/reactor/extensionbridge/extensionbridge.min.js"></script>
+    <script>
+      window.extensionBridge.register({
+        init: function(info) {
+          if (info.settings) {
+            document.querySelector("#selector").value = info.settings.selector || "";
+          }
+        },
+        getSettings: function() {
+          return {
+            selector: document.querySelector("#selector").value || ""
+          }
+        },
+        validate: function() {
+          return !0;
+        }
+      });
+    </script>
+  </body>
+</html>

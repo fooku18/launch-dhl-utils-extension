@@ -2,7 +2,7 @@
   "displayName": "DHL Tracking Tools",
   "name": "util-functions-dhl",
   "platform": "web",
-  "version": "1.0.29",
+  "version": "1.0.40",
   "description": "DHL Utils provide a variety of useful events, conditions and actions for our click and event driven tracking approach.",
   "iconPath": "./src/resources/icon/dhl.svg",
   "author": {
@@ -86,6 +86,28 @@
         "properties": {}
       },
       "libPath": "src/lib/events/usabillaCampaignEnd.js"
+    },
+    {
+      "displayName": "Click on data-tracking",
+      "name": "click-on-data-tracking",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {}
+      },
+      "libPath": "src/lib/events/clickOnDataTracking.js",
+      "viewPath": "events/clickOnDataTracking.html"
+    },
+    {
+      "displayName": "E2E Hash Append",
+      "name": "e2e-hash-append",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {}
+      },
+      "libPath": "src/lib/events/e2eHashAppend.js",
+      "viewPath": "actions/e2eHashAppend.html"
     }
   ],
   "conditions": [

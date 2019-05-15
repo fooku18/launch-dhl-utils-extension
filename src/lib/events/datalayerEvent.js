@@ -25,4 +25,4 @@ module.exports = function(settings, trigger) {
     if(!triggers[settings.path].length)
         setInterval(cb, 500);
     triggers[settings.path].push(trigger);
-};  
+};
