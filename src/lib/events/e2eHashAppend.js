@@ -2,6 +2,8 @@
 
 var window = require("@adobe/reactor-window");
 
+var e2eid = require("../dataElements/e2eid");
+
 var matchStringBuilder = function(settings){
   var cssString = "[href*='###']";
   var cssFull = [];
@@ -42,15 +44,15 @@ var matchesSelector = function(e, t){
       source: window.location.hostname,
       random: new Date() + "|" + Math.random().toString()
     }
-    return btoa(JSON.stringify(load));
+    return btoa(JSON.stringify(load)).replace(/=/g, "");
   } 
   /* e2eid hierarchie: 
     * 1. e2eid token from window.location.search parameter
     * 2. get token from sessionStorage
     * 3. create new token from random number and timestamp
   */
-  var e2eid = e2em&&e2em[1] || e2es || generateUserString();
-  return window.sessionStorage.setItem("s_e2eid", e2eid), e2eid;
+  var e2eid = e2em&&(window.sessionStorage.removeItem("s_e2eid_f"),e2em[1]) || e2es || generateUserString();
+  window.sessionStorage.setItem("s_e2eid", e2eid);
 })();
 
 module.exports = function(settings, trigger) {

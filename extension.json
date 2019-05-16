@@ -2,7 +2,7 @@
   "displayName": "DHL Tracking Tools",
   "name": "util-functions-dhl",
   "platform": "web",
-  "version": "1.0.40",
+  "version": "1.0.44",
   "description": "DHL Utils provide a variety of useful events, conditions and actions for our click and event driven tracking approach.",
   "iconPath": "./src/resources/icon/dhl.svg",
   "author": {
@@ -256,6 +256,16 @@
         "properties": {}
       },
       "libPath": "src/lib/dataElements/trafficType.js"
+    },
+    {
+      "displayName": "e2eId",
+      "name": "e2eid",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {}
+      },
+      "libPath": "src/lib/dataElements/e2eid.js"
     }
   ]
 }
