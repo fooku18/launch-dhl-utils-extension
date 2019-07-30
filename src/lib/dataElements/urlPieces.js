@@ -10,9 +10,9 @@ module.exports = function(settings, event) {
   var src;
   if(event.detail && event.detail.linkUrl){
     src = event.detail.linkUrl;
-  }else if (event.element && event.element.getAttribute("href")){
+  }else if (event.element && event.element.getAttribute && event.element.getAttribute("href")){
     src = event.element.getAttribute("href");
-  }else if (event.nativeEvent && event.nativeEvent.target && event.nativeEvent.target.getAttribute("href")){
+  }else if (event.nativeEvent && event.nativeEvent.target && event.nativeEvent.target.getAttribute && event.nativeEvent.target.getAttribute("href")){
     src = event.nativeEvent.target.getAttribute("href");
   }else{
     return;
