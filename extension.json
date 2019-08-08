@@ -2,7 +2,7 @@
   "displayName": "DHL Tracking Tools",
   "name": "util-functions-dhl",
   "platform": "web",
-  "version": "1.0.45",
+  "version": "1.0.46",
   "description": "DHL Utils provide a variety of useful events, conditions and actions for our click and event driven tracking approach.",
   "iconPath": "./src/resources/icon/dhl.svg",
   "author": {
@@ -28,16 +28,6 @@
       "viewPath": "actions/directCall.html"
     },
     {
-      "displayName": "Decibel Force Collection",
-      "name": "decibel-force-collection",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
-        "type": "object",
-        "properties": {}
-      },
-      "libPath": "src/lib/actions/decibelForceCollection.js"
-    },
-    {
       "displayName": "Trigger Custom Event",
       "name": "trigger-custom-event",
       "schema": {
@@ -61,82 +51,8 @@
     }
   ],
   "events": [
-    {
-      "displayName": "Dynamic Event Listener",
-      "name": "datalayer-event",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
-        "type": "object",
-        "properties": {
-          "path": {
-            "type": "string",
-            "minLength": 1
-          }
-        }
-      },
-      "libPath": "src/lib/events/datalayerEvent.js",
-      "viewPath": "events/datalayerEvent.html"
-    },
-    {
-      "displayName": "Usabilla Campaign End",
-      "name": "usabilla-campaign-end",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
-        "type": "object",
-        "properties": {}
-      },
-      "libPath": "src/lib/events/usabillaCampaignEnd.js"
-    },
-    {
-      "displayName": "Click on data-tracking",
-      "name": "click-on-data-tracking",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
-        "type": "object",
-        "properties": {}
-      },
-      "libPath": "src/lib/events/clickOnDataTracking.js",
-      "viewPath": "events/clickOnDataTracking.html"
-    },
-    {
-      "displayName": "E2E Hash Append",
-      "name": "e2e-hash-append",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
-        "type": "object",
-        "properties": {}
-      },
-      "libPath": "src/lib/events/e2eHashAppend.js",
-      "viewPath": "actions/e2eHashAppend.html"
-    }
   ],
   "conditions": [
-    {
-      "displayName": "Dynamic Event Name",
-      "name": "dynamic-event-name",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
-        "type": "object",
-        "properties": {
-          "condition": {
-            "type": "string",
-            "minLength": 1
-          }
-        }
-      },
-      "libPath": "src/lib/conditions/dynamicEventName.js",
-      "viewPath": "conditions/dynamicEventName.html"
-    },
-    {
-      "displayName": "Data-Tracking Value Event Appender",
-      "name": "data-tracking-value-event-appender",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
-        "type": "object",
-        "properties": {}
-      },
-      "libPath": "src/lib/conditions/dataTrackingValueEventAppender.js"
-    }
   ],
   "sharedModules": [
     {
@@ -256,16 +172,6 @@
         "properties": {}
       },
       "libPath": "src/lib/dataElements/trafficType.js"
-    },
-    {
-      "displayName": "e2eId",
-      "name": "e2eid",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
-        "type": "object",
-        "properties": {}
-      },
-      "libPath": "src/lib/dataElements/e2eid.js"
     }
   ]
 }
