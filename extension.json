@@ -2,8 +2,8 @@
   "displayName": "DHL Tracking Tools",
   "name": "util-functions-dhl",
   "platform": "web",
-  "version": "1.0.46",
-  "description": "DHL Utils provide a variety of useful events, conditions and actions for our click and event driven tracking approach.",
+  "version": "2.0.0",
+  "description": "DHL Utils provide a variety of useful tools for standard tracking measures.",
   "iconPath": "./src/resources/icon/dhl.svg",
   "author": {
     "name": "DHL CSI",
