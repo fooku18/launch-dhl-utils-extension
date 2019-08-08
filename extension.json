@@ -55,10 +55,6 @@
   "conditions": [
   ],
   "sharedModules": [
-    {
-      "name": "tracker-setter",
-      "libPath": "src/lib/sharedModules/trackerSetter.js"
-    }
   ],
   "dataElements": [
     {
