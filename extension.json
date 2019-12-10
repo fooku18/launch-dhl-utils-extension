@@ -177,16 +177,6 @@
         "properties": {}
       },
       "libPath": "src/lib/dataElements/trafficType.js"
-    },
-    {
-      "displayName": "Seconds Since Session Start",
-      "name": "seconds-since-session-start",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
-        "type": "object",
-        "properties": {}
-      },
-      "libPath": "src/lib/dataElements/secondsSinceSessionStart.js"
     }
   ]
 }

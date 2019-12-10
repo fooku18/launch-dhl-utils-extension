@@ -9,17 +9,13 @@
     <form class="coral-Form coral-Form--vertical">
       <section class="coral-Form-fieldset">
         <div>
-          <h3>Scroll Depth</h3>
+          <h3>Previous Page Scroll Depth</h3>
+          <p>
+            This Data Element will save the last pages scroll depth in a session storage variable. Please specifiy the variable in the settings below.
+          </p>
           <div>
-            <label for="initial">
-              <input id="initial" type="radio" name="details" value="initial">
-              <span>Initial</span>
-            </label>
-          </div>
-          <div>
-            <label for="maximum">
-              <input id="maximum" type="radio" name="details" value="maximum">
-              <span>Maximum</span>
+            <label for="storageName">
+              <input id="storageName" type="text" name="details" value="">
             </label>
           </div>
         </div>
@@ -29,17 +25,17 @@
     <script>
       window.extensionBridge.register({
         init: function(info) {
-          if (info.settings) {
-            document.querySelector("#"+info.settings.details).checked = !0;
+          if(info.settings) {
+            document.querySelector("#storageName").value = info.settings.details;
           }
         },
         getSettings: function() {
           return {
-            details: document.querySelector("[name='details']:checked").getAttribute("id")
+            details: document.querySelector("#storageName").value
           }
         },
         validate: function() {
-          return !!document.querySelector("[name='details']:checked");
+          return !!document.querySelector("#storageName").value;
         }
       });
     </script>

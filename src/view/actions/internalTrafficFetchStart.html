@@ -8,8 +8,18 @@
   <body class="coral--light">
     <form class="coral-Form coral-Form--vertical">
       <section class="coral-Form-fieldset">
-        <label class="coral-Form-fieldlabel" for="js.name">Internal URL</label>
-        <input type="text" name="js.name" class="coral-Textfield" id="url" />
+        <div>
+            <h3>Internal Traffic Detection</h3>
+            <p>
+              This Action Element will detect internal traffic by requesting an internal url specified below. If the client cant resolve the url, then the client will be recognised as 'external' from that point on. 
+              When the status is resolved, the traffic type will be preserved in a session storage variable in order to only request the internal url with the first page view.
+              This Action requires the browsers Fetch API and will therefore not work for IE11 and below.
+            </p>
+            <div>
+              <label class="coral-Form-fieldlabel" for="js.name">Internal URL</label>
+              <input type="text" name="js.name" class="coral-Textfield" id="url" />
+            </div>
+        </div>
       </section>
     </form>
     <script src="https://assets.adobedtm.com/activation/reactor/extensionbridge/extensionbridge.min.js"></script>
@@ -25,7 +35,6 @@
             url: document.querySelector("#url").value
           }
         },
-
         validate: function() {
           return !!document.querySelector("#url").value.match(/^https?:\/\/[\w\d\/\.\-\~\%\=\?\&]+$/);
         }

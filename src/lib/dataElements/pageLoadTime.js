@@ -2,6 +2,7 @@
 
 var window = require("@adobe/reactor-window");
 
+
 module.exports = function(settings) {
   var lt = "";
   if(typeof window.performance !== "undefined" && typeof window.performance.timing != "undefined"){
