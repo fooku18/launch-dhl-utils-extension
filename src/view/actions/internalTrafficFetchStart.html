@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="//assets.adobedtm.com/activation/reactor/coralui/3.16.0/css/coral.css">
+    <title>Action</title>
+  </head>
+  <body class="coral--light">
+    <form class="coral-Form coral-Form--vertical">
+      <section class="coral-Form-fieldset">
+        <label class="coral-Form-fieldlabel" for="js.name">Internal URL</label>
+        <input type="text" name="js.name" class="coral-Textfield" id="url" />
+      </section>
+    </form>
+    <script src="https://assets.adobedtm.com/activation/reactor/extensionbridge/extensionbridge.min.js"></script>
+    <script>
+      window.extensionBridge.register({
+        init: function(info) {
+          if (info.settings) {
+            document.querySelector("#url").value = info.settings.url || "";
+          }
+        },
+        getSettings: function() {
+          return {
+            url: document.querySelector("#url").value
+          }
+        },
+
+        validate: function() {
+          return !!document.querySelector("#url").value.match(/^https?:\/\/[\w\d\/\.\-\~\%\=\?\&]+$/);
+        }
+      });
+    </script>
+  </body>
+</html>

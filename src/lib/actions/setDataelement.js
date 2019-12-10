@@ -1,5 +1,8 @@
 'use strict';
 
+var window = require("@adobe/reactor-window");
+
 module.exports = function(settings) {
-  _satellite.setVar(settings.name, settings.details);
+  window._satellite&&
+    window._satellite.setVar(settings.name, settings.details);
 };

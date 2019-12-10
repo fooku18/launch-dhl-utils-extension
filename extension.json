@@ -2,7 +2,7 @@
   "displayName": "DHL Tracking Tools",
   "name": "util-functions-dhl",
   "platform": "web",
-  "version": "2.0.0",
+  "version": "2.0.6",
   "description": "DHL Utils provide a variety of useful tools for standard tracking measures.",
   "iconPath": "./src/resources/icon/dhl.svg",
   "author": {
@@ -39,7 +39,7 @@
       "viewPath": "actions/triggerCustomEvent.html"
     },
     {
-      "displayName": "Set DataElement",
+      "displayName": "Set Data Element",
       "name": "set-dataelement",
       "schema": {
         "$schema": "http://json-schema.org/draft-04/schema#",
@@ -48,14 +48,23 @@
       },
       "libPath": "src/lib/actions/setDataelement.js",
       "viewPath": "actions/setDataelement.html"
+    },
+    {
+      "displayName": "Internal Traffic Fetch Start",
+      "name": "internal-traffic-fetch-start",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {}
+      },
+      "libPath": "src/lib/actions/internalTrafficFetchStart.js",
+      "viewPath": "actions/internalTrafficFetchStart.html"
     }
   ],
   "events": [
   ],
-  "conditions": [
-  ],
-  "sharedModules": [
-  ],
+  "conditions": [],
+  "sharedModules": [],
   "dataElements": [
     {
       "displayName": "Previous Value",
@@ -168,6 +177,16 @@
         "properties": {}
       },
       "libPath": "src/lib/dataElements/trafficType.js"
+    },
+    {
+      "displayName": "Seconds Since Session Start",
+      "name": "seconds-since-session-start",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {}
+      },
+      "libPath": "src/lib/dataElements/secondsSinceSessionStart.js"
     }
   ]
 }

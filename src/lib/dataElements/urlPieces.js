@@ -1,11 +1,6 @@
 'use strict';
 
 module.exports = function(settings, event) {
-  // var ev = event && (event.element || event.nativeEvent&&event.nativeEvent.target || event.detail);
-  // if(!ev)return"";
-  // ev = event.element||(event.nativeEvent&&event.nativeEvent.target)||event.detail&&event;
-  // var src = (ev.detail&&ev.detail.linkUrl)||(ev.getAttribute&&ev.getAttribute("href")||"");
-  // if(!src)return src;
   if(!event)return;
   var src;
   if(event.detail && event.detail.linkUrl){
